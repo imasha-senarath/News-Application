@@ -62,7 +62,7 @@ public class FakeNewsFragment extends Fragment
     private void URLChecking()
     {
         /* IP Address = Wireless LAN adapter Wi-Fi: IPv4 Address */
-        String URL = "http://192.168.8.103:3000/getnews";
+        String URL = "http://192.168.8.101:5500/json/news.json";
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null,
                 new Response.Listener<JSONArray>()
                 {
@@ -70,7 +70,7 @@ public class FakeNewsFragment extends Fragment
                     public void onResponse(JSONArray response)
                     {
                         /* Main API */
-                        parseJson("http://192.168.8.103:3000/getnews");
+                        parseJson("http://192.168.8.101:5500/json/news.json");
                         //Toast.makeText(getContext(), "The main API was connected", Toast.LENGTH_SHORT).show();
                     }
                 },
@@ -80,7 +80,7 @@ public class FakeNewsFragment extends Fragment
                     public void onErrorResponse(VolleyError error)
                     {
                         /* Backup API */
-                        parseJson("http://192.168.8.103:3000/getnews");
+                        parseJson("http://192.168.8.101:5500/json/news.json");
                         //Toast.makeText(getContext(), "The backup API was connected", Toast.LENGTH_SHORT).show();
                     }
                 });
